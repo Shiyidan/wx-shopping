@@ -1,0 +1,26 @@
+<!--pages/demo01/demo01.wxml-->
+<text>pages/demo01/demo01.wxml</text>
+<text >111111</text>
+<!-- 字符串 -->
+<view>{{msg}}</view>
+<!-- 不能只写person -->
+<view > {{person.name}}</view>
+
+<view data-num="{{num}}">自定义属性</view>
+<view>
+  <checkbox checked="{{ischecked}}">
+  </checkbox>
+</view>
+
+<view >
+  <block
+  wx:for="{{list}}"
+  wx:for-item="item"
+  wx:for-index="index"
+  class="111"
+  >
+    {{item.id}}
+    {{item.name}}
+  </block>
+    
+</view>

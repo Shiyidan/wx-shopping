@@ -1,0 +1,9 @@
+text {
+  color: yellow;
+}
+view .view1 {
+  color: red;
+}
+img{
+  box-sizing: border-box;
+}

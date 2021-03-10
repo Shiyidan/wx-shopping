@@ -1,0 +1,9 @@
+<!--pages/demo03/demo03.wxml-->
+<text>pages/demo03/demo03.wxml</text>
+<input type="text" bindinput="handleInput"/>
+<button bindtap="handletap" data-operation="{{1}}">+</button>
+<button bindtap="handletap" data-operation="{{-1}}">-</button>
+<view >{{num}}</view>
+<text selectable>text</text>
+<image src="https://qlogo4.store.qq.com/qzone/1984338143/1984338143/100?1569236401" />
+<swiper ></swiper>
