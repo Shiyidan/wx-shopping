@@ -1,0 +1,60 @@
+.swiper_index{
+  swiper{
+    width:750rpx;
+    height: 340rpx;
+    image{
+      //图片默认w320  h240，所以要设置宽高
+      width: 100%;
+    }
+  }
+}
+.index_cate{
+  display: flex;
+  navigator{
+    padding: 20rpx;
+    flex: 1;
+    image{
+      width: 100%;
+    }
+  }
+}
+
+.index_floor {
+  .floor_group {
+    .floor_title {
+      padding: 10rpx;
+      image {
+        // 使标题图片大一点
+        width: 100%;
+      }
+    }
+    .floor_list {
+      navigator {
+        float: left;
+        // 大图设置widthFix 在这里设置width 就不用再设置具体的宽高 自适应
+        width: 33.33%;
+        // 后几个就是-n加几
+        &:nth-last-child(-n + 4) {
+          // 原图宽高232*386
+          // 232 / 386 = 33.33vw / height
+          // 第一张大图的高度 ：
+          // height = 33.33vw / (232/386)
+          // 后四张小图的高度
+          // height =  33.33vw * 386 /232 /2;
+          // 以上算法没有效果！！不知道为什么！
+          height: 115px;
+          border-left: 10rpx solid #fff;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+          border-bottom: 10rpx solid #fff;
+        }
+        image {
+          // 继承盒子的宽高
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
