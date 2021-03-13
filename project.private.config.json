@@ -1,0 +1,24 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "分类模块",
+          "pathName": "pages/category/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}
