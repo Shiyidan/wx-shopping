@@ -1,4 +1,5 @@
 import { request } from "../../request/index.js";
+import regeneratorRuntime from "../../lib/runtime/runtime";
 Page({
   data: {
     leftMenyList:[],
@@ -36,29 +37,48 @@ Page({
     this.getCates();
   },
   // 获取分类数据
-  getCates (){
-    request({
-      url:"/categories"
-    })
-      .then(res=> {
-        //console.log(res);
-        let Cates=this.Cates;
-        Cates=res;
-        //console.log(Cates);
-        //把接口的数据存入到本地存储中
-        wx.setStorageSync("cates", { time: Date.now(), data: this.CartData });
-        //左侧数据
-        let leftMenuList=Cates.map((v) => v.cat_name);
-        // console.log(leftMenuList);
-        let rightContent=Cates[0].children;
-        this.setData({
-          leftMenuList,
-          rightContent
-        })
-        //console.log(res);
-        return res;
-      })
+  async getCates (){
+    // request({
+    //   url:"/categories"
+    // })
+    //   .then(res=> {
+    //     //console.log(res);
+    //     let Cates=this.Cates;
+    //     Cates=res;
+    //     //console.log(Cates);
+    //     //把接口的数据存入到本地存储中
+    //     wx.setStorageSync("cates", { time: Date.now(), data: this.CartData });
+    //     //左侧数据
+    //     let leftMenuList=Cates.map((v) => v.cat_name);
+    //     // console.log(leftMenuList);
+    //     let rightContent=Cates[0].children;
+    //     this.setData({
+    //       leftMenuList,
+    //       rightContent
+    //     })
+    //     //console.log(res);
+    //     return res;
+    //   })
+
+// 使用es7的async和await发送异步请求
+
+  const res=await request({url:"/categories"});
+  let Cates=this.Cates;
+  Cates=res;
+  //console.log(Cates);
+  //把接口的数据存入到本地存储中
+  wx.setStorageSync("cates", { time: Date.now(), data: this.CartData });
+  //左侧数据
+  let leftMenuList=Cates.map((v) => v.cat_name);
+  // console.log(leftMenuList);
+  let rightContent=Cates[0].children;
+  this.setData({
+    leftMenuList,
+    rightContent
+  })
+
   },
+
   //var Cates=new getCates;
   //点击事件
   handleItemTap(e){
